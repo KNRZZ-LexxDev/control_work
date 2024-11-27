@@ -1,0 +1,46 @@
+.products__edit-wrap{
+    width: 100%;
+    height: auto;
+    background: hsl(0, 0%, 95%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.product__control-wrap{
+    width: 1200px;
+    height: auto;
+    background: #ffffff;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product__control-button-wrap{
+    width: 80%;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.product__control-card-wrap{
+    width: 80%;
+    height: auto;
+}
+
+.product__control-button-add{
+    width: 110px;
+    height: 40px;
+    background: #2F8C25;
+    border-radius: 8px;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    margin-right: 0px;
+    margin-left: auto;
+}

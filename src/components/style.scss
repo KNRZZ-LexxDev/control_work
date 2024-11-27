@@ -1,0 +1,28 @@
+.input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    &__label{
+        text-align: left;
+        font-size: 16px;
+        color: #363853;
+        font-family: "Rubik", "sans-serif";
+    }
+    &__interact{
+        width: 100%;
+        height: 72px;
+        margin: 5px auto;
+        font-size: 16px;
+        color: #363853;
+        font-family: "Rubik", "sans-serif"; 
+        border-radius: 10px;
+        border: none;
+        // padding-left: 24px;
+        background: #F2F2F2;
+    }
+    &__error{
+        font-size: 16px;
+        color: #F21A1A;
+        font-family: "Rubik", "sans-serif";
+        margin: 5px auto;  
+    }
+}
