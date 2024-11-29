@@ -1,6 +1,26 @@
 import React from "react";
+import { useContext, useState } from "react";
+import { ListContext } from "../../App";
+import { CardContext } from "../../App";
 import '../../pages/list/styles/productCard.scss'
-export const ProductCard = ({ image_url, title, description, date, commission }) => {
+export const ProductCard = ({ id, image_url, title, description, date, commission, inCard=false }) => {
+
+    const {isList, setIsList} = useContext(ListContext);
+    const {isCard, setIsCard} = useContext(CardContext);
+    const [added, setAdded] = useState(inCard);
+
+    const addedHandler = (id) => {
+        setAdded(true);
+        isList.map((elem) => {
+            if(elem.id  === id){
+                // localStorage.setItem('count', JSON.parse(localStorage.getItem('count')) + 1);
+                setIsCard((isCard) => [...isCard, id])
+                console.log(isCard)
+                return elem.inCard  = true;
+            }
+        })
+    }
+
     return (
         <div className="product__card">
             <div className="product__card-wrap">
@@ -25,7 +45,7 @@ export const ProductCard = ({ image_url, title, description, date, commission })
 
                     </div>
 
-                    <div className="product__card-side-ing-arrow">
+                    <div className="product__card-side-ing-arrow" style={{ display: (added ? 'none' : 'block')}} onClick={() => addedHandler(id)}>
 
                     </div>
 

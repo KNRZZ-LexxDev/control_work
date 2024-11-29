@@ -5,7 +5,8 @@ export const products = [
         title: "eBay",
         description: "Веб-сайтом eBay.com и его местными версиями в нескольких странах владела компания eBay Enterprise, ",
         date: "до 7 дней",
-        commission: "0,68%"
+        commission: "0,68%",
+        inCard: false
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ export const products = [
         title: "eBay",
         description: "Веб-сайтом eBay.com и его местными версиями в нескольких странах владела компания eBay Enterprise, ",
         date: "до 7 дней",
-        commission: "0,68%"
+        commission: "0,68%",
+        inCard: false
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ export const products = [
         title: "eBay",
         description: "Веб-сайтом eBay.com и его местными версиями в нескольких странах владела компания eBay Enterprise, ",
         date: "до 7 дней",
-        commission: "0,68%"
+        commission: "0,68%",
+        inCard: false
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ export const products = [
         title: "eBay",
         description: "Веб-сайтом eBay.com и его местными версиями в нескольких странах владела компания eBay Enterprise, ",
         date: "до 7 дней",
-        commission: "0,68%"
+        commission: "0,68%",
+        inCard: false
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ export const products = [
         title: "eBay",
         description: "Веб-сайтом eBay.com и его местными версиями в нескольких странах владела компания eBay Enterprise, ",
         date: "до 7 дней",
-        commission: "0,68%"
+        commission: "0,68%",
+        inCard: false
     },
     {
         id: 6,
@@ -45,6 +50,7 @@ export const products = [
         title: "eBay",
         description: "Веб-сайтом eBay.com и его местными версиями в нескольких странах владела компания eBay Enterprise, ",
         date: "до 7 дней",
-        commission: "0,68%"
+        commission: "0,68%",
+        inCard: false
     },
 ]

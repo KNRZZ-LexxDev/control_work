@@ -21,11 +21,14 @@ export const Auth = () => {
 
     const onSubmit = (data) => {
         var userData = JSON.parse(localStorage.getItem('user'));
-        const {email, password} = data
+        const {email, password, check} = data
         if (password == userData.user_pass && email == userData.user_email) {
             navigate('/admin')
             setIsAuth(true);
             
+        }
+        if(check){
+            localStorage.setItem('access token', 'asdhsajdjhsajkhdjkhsajhdjsahdjkas')
         }
     };
 
@@ -70,7 +73,7 @@ export const Auth = () => {
                     </div>
 
                     <div className="auth__form__content__policy__wrap">
-                        <input type="checkbox" className="auth__form__content__policy__access" id='chk'></input>
+                        <input type="checkbox" className="auth__form__content__policy__access" id='chk' {...register('check')}></input>
                         <label for="chk"></label>
                         <p className="auth__form__content__policy__text">Запомнить меня</p>
                     </div>
