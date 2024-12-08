@@ -3,8 +3,10 @@ import { useContext, useState } from "react";
 import { ListContext } from "../../App";
 import { CardContext } from "../../App";
 import '../../pages/list/styles/productCard.scss'
-export const ProductCard = ({ id, image_url, title, description, date, commission, inCard=false }) => {
+import { useParams } from "react-router-dom";
 
+export const ProductCard = ({ id, image_url, title, description, date, commission, inCard=false }) => {
+    const { id: idProduct } = useParams();
     const {isList, setIsList} = useContext(ListContext);
     const {isCard, setIsCard} = useContext(CardContext);
     const [added, setAdded] = useState(inCard);
@@ -26,7 +28,7 @@ export const ProductCard = ({ id, image_url, title, description, date, commissio
             <div className="product__card-wrap">
 
                 <img className="product__card-image" src={image_url}></img>
-                <h2 className="product__card-title">{title}</h2>
+                <h2 className="product__card-title">{title} {id}</h2>
 
                 <div className="product__card-desc-wrap">
                     <p className="product__card-desc-text">{description}</p>

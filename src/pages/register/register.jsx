@@ -56,7 +56,20 @@ export const Register = () => {
                             errors={errors}
                             name={"name"}
                             register={register}
-                            validate={{required: true}}
+                            validate={{
+                                required: true,
+                                minLength: {
+                                    value: 2,
+                                    message: 'Имя должно содержать минимум 2 символа'
+                                },
+                                maxLength: {
+                                    value: 30,
+                                    message: 'Имя не должно превышать 30 символов'
+                                },
+                                pattern: {
+                                    value: /^[A-Z]*$/i
+                                }
+                            }}
                             placeholder="Имя фамилия"
                             type="text"
                         />
@@ -64,7 +77,20 @@ export const Register = () => {
                             errors={errors}
                             name={"login"}
                             register={register}
-                            validate={{required: true}}
+                            validate={{
+                                required: true,
+                                minLength: {
+                                    value: 2,
+                                    message: 'Имя должно содержать минимум 2 символа'
+                                },
+                                maxLength: {
+                                    value: 30,
+                                    message: 'Имя не должно превышать 30 символов'
+                                },
+                                pattern: {
+                                    value: /^[A-Z0-9]+@[A-Z0-9]+.[A-Z]*$/i
+                                }
+                            }}
                             placeholder="E-mail / Логин"
                             type="text"
                         />
@@ -72,7 +98,20 @@ export const Register = () => {
                             errors={errors}
                             name={"phone"}
                             register={register}
-                            validate={{required: true}}
+                            validate={{
+                                required: true,
+                                minLength: {
+                                    value: 2,
+                                    message: 'Имя должно содержать минимум 2 символа'
+                                },
+                                maxLength: {
+                                    value: 30,
+                                    message: 'Имя не должно превышать 30 символов'
+                                },
+                                pattern: {
+                                    value: /^[A-Z0-9]*$/i
+                                }
+                            }}
                             placeholder="Номер телефона"
                             type="text"
                         />
@@ -80,7 +119,20 @@ export const Register = () => {
                             errors={errors}
                             name={"password"}
                             register={register}
-                            validate={{required: true}}
+                            validate={{
+                                required: true,
+                                minLength: {
+                                    value: 2,
+                                    message: 'Имя должно содержать минимум 2 символа'
+                                },
+                                maxLength: {
+                                    value: 30,
+                                    message: 'Имя не должно превышать 30 символов'
+                                },
+                                pattern: {
+                                    value: /^[A-Z0-9]*$/i
+                                }
+                            }}
                             placeholder="Пароль"
                             type="text"
                         />

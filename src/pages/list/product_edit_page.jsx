@@ -4,35 +4,38 @@ import { useState, useEffect, useContext } from "react";
 import { ListContext } from "../../App";
 import '../list/styles/productEditPage.scss'
 import { FormInput } from "../../components/formInput/formInput";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const ProductEditPage = (props) => {
+
+    const { id } = useParams();
 
     const navigate = useNavigate();
 
     const {isList, setIsList} = useContext(ListContext);
 
     const [errorForm, setErrorForm] = useState(false);
-
+    
     const {
         handleSubmit,
         formState: { errors },
         register,
         setValue,
+        reset,
     } = useForm({
-        defaultValues: JSON.parse(localStorage.getItem('product')),
+        defaultValues: isList.find(elem=>Number(elem.id) === Number(id))
     });
 
-    useEffect( () => {
-        setValue('title', JSON.parse(localStorage.getItem('product'))[0].title)
-        setValue('commission', JSON.parse(localStorage.getItem('product'))[0].commission)
-        setValue('date', JSON.parse(localStorage.getItem('product'))[0].date)
-        setValue('description', JSON.parse(localStorage.getItem('product'))[0].description)
-    }, [])
+    // useEffect( () => {
+    //     setValue('title', isList[idCard].title)
+    //     setValue('commission', isList[idCard].commission)
+    //     setValue('date', isList[idCard].date)
+    //     setValue('description', isList[idCard].description)
+    // }, [])
 
     const onSubmit = (data) => {
         isList.map((elem) => {
-            if(elem.id == JSON.parse(localStorage.getItem('product'))[0].id){
+            if(elem.id == id){
                 elem.title = data.title
                 elem.commission = data.commission
                 elem.date = data.date
@@ -42,6 +45,17 @@ export const ProductEditPage = (props) => {
         navigate('/products')
     };
 
+
+    const cancelHandler = () => {
+        reset({
+            'title': '',
+            'commission': '',
+            'date': '',
+            'description': '',
+        })
+        
+        navigate('/admin');
+    }
 
     return (
         <div className="productEditPage__wrap">
@@ -95,7 +109,7 @@ export const ProductEditPage = (props) => {
 
                         <div className="productEditPage__buttons-wrap">
                             <button className="productEditPage__buttons-add">Изменить</button>
-                            <button className="productEditPage__buttons-cancel">Отмена</button>
+                            <button className="productEditPage__buttons-cancel" onClick={cancelHandler}>Отмена</button>
                         </div>
                     </form>
                 )}

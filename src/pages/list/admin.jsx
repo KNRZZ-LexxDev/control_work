@@ -1,26 +1,23 @@
-import React, {useContext, useState} from "react";
+import React, { useContext } from "react";
 import { ListContext } from "../../App";
 import { ProductEditCard } from "./product_edit_card";
 import '../../pages/list/styles/adminPage.scss';
-import { products } from "../../card_files/card";
 import { useNavigate } from "react-router-dom";
 
 export const AdminPage = () => {
-
     const navigate = useNavigate();
-    const {isList, setIsList} = useContext(ListContext);
+    const { isList, setIsList } = useContext(ListContext);
 
-    const editProduct = (id) => {
-        let edit_product = isList.filter((isList) => isList.id === id)
-        localStorage.setItem('product', JSON.stringify(edit_product));
-    }
+    const editProduct = (idCard) => {
+        // Перенаправление на страницу редактирования с передачей idCard в URL
+        navigate(`edit/${idCard}`);
+    };
 
-    const removeProduct = (id) => {
-        setIsList((isList) =>
-            isList.filter((isList) => isList.id !== id)
-    )
-};
-
+    const removeProduct = (idCard) => {
+        setIsList((prevList) =>
+            prevList.filter((item) => item.id !== idCard)
+        );
+    };
 
     return (
         <div className="products__edit-wrap">
@@ -30,11 +27,21 @@ export const AdminPage = () => {
                 </div>
 
                 <div className="product__control-card-wrap">
-                    {isList.map((elem, key) => {
-                        return <ProductEditCard id={elem.id} image_url={"https://avatars.mds.yandex.net/get-ydo/6058772/2a0000017f550178ff61e0522afb12f8092a/diploma"} title={elem.title} description={elem.description} date={elem.date} commission={elem.commission} onEdit={editProduct} onRemove={removeProduct} />
-                    })}
+                    {isList.map((elem) => (
+                        <ProductEditCard 
+                            key={elem.id} // Добавляем ключ для каждого элемента
+                            idItem={elem.id} 
+                            image_url={"https://avatars.mds.yandex.net/get-ydo/6058772/2a0000017f550178ff61e0522afb12f8092a/diploma"} 
+                            title={elem.title} 
+                            description={elem.description} 
+                            date={elem.date} 
+                            commission={elem.commission} 
+                            onEdit={editProduct} 
+                            onRemove={removeProduct} 
+                        />
+                    ))}
                 </div>
             </div>
         </div>
     );
-}
+};

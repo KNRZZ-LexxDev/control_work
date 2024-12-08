@@ -1,27 +1,28 @@
 import React, {useContext, useCallback} from "react";
 import { ListContext } from "../../App";
 import '../../pages/list/styles/productEditCard.scss'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export const ProductEditCard = ({ id, image_url, title, description, date, commission, onRemove, onEdit }) => {
+
+export const ProductEditCard = ({ idItem, image_url, title, description, date, commission, onRemove, onEdit }) => {
+    const { id } = useParams();
     const navigate = useNavigate();
     const {isList, setIsList} = useContext(ListContext);
 
     const removeProduct = useCallback(() => {
-        onRemove(id);
+        onRemove(idItem);
     }, [id, onRemove]);
 
     const editProduct = useCallback(() => {
-        navigate('/edit')
-        onEdit(id)
-    }, [id, onEdit]);
+        onEdit(idItem)
+    }, [id, onEdit, idItem]);
 
 
     return (
         <div className="product__edit-wrap" onClick={() => console.log(isList)}>
             <img className="product__edit-img" src={image_url}></img>
             <div className="product__edit__control-wrap">
-                <h2 className="product__edit__control-title">{title}</h2>
+                <h2 className="product__edit__control-title">{title} {idItem}</h2>
                 <p className="product__edit__control-desc">{description}</p>
                 <div className="product__edit__control-side-inf">
                     <p className="product__edit__control-side-inf-delivery">Срок доставки:

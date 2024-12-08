@@ -7,9 +7,8 @@ import { ErrorElement } from "../errorElement/errorElement";
 import { AdminPage } from "../../pages/list/admin";
 import { ProductsPage } from "../../pages/list/products";
 import { ProductAddPage } from "../../pages/list/product_add_page";
-import { ProductEditCard } from "../../pages/list/product_edit_card";
+import { ProductEditCard } from "../../pages/list/product_edit_card"; // Убедитесь, что этот компонент используется
 import { ProductEditPage } from "../../pages/list/product_edit_page";
-
 
 const AuthPages = [
     {
@@ -25,10 +24,10 @@ const AuthPages = [
         Component: ProductAddPage,
     },
     {
-        path: '/edit',
+        path: 'admin/edit/:id', 
         Component: ProductEditPage,
     },
-]
+];
 
 const notAuthPages = [
     {
@@ -39,7 +38,7 @@ const notAuthPages = [
         path: '/auth',
         Component: Auth,
     },
-]
+];
 
 export const getRoutes = (isAuth) => {
     return createBrowserRouter([
@@ -51,8 +50,9 @@ export const getRoutes = (isAuth) => {
                     path: '/',
                     Component: Register,
                 },
-                 ...AuthPages, ... notAuthPages
-            ]
-        }
-    ])
-}
+                ...notAuthPages,
+                ...AuthPages,
+            ],
+        },
+    ]);
+};
